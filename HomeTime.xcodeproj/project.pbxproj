@@ -25,6 +25,9 @@
 		BFA41DEB25E9AC2E00F80516 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41DEA25E9AC2E00F80516 /* CustomError.swift */; };
 		BFA41DEF25E9AFDF00F80516 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41DEE25E9AFDF00F80516 /* APIResponse.swift */; };
 		BFA41DF525E9B8D300F80516 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41DF425E9B8D300F80516 /* GCD.swift */; };
+		BFA41DF925E9B9DD00F80516 /* TramManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41DF825E9B9DD00F80516 /* TramManager.swift */; };
+		BFA41DFD25E9B9EE00F80516 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41DFC25E9B9EE00F80516 /* TokenManager.swift */; };
+		BFA41E0225E9BC6500F80516 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41E0125E9BC6500F80516 /* APIEndpoints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		BFA41DEA25E9AC2E00F80516 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		BFA41DEE25E9AFDF00F80516 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		BFA41DF425E9B8D300F80516 /* GCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
+		BFA41DF825E9B9DD00F80516 /* TramManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramManager.swift; sourceTree = "<group>"; };
+		BFA41DFC25E9B9EE00F80516 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		BFA41E0125E9BC6500F80516 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		F0990E01D57F549B4FDF5FB8 /* Pods-HomeTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeTime/Pods-HomeTime.debug.xcconfig"; sourceTree = "<group>"; };
 		F7A07D474CE395E42F62BE85 /* Pods_HomeTimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -227,9 +233,20 @@
 		BFA41DE125E9A57B00F80516 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				BFA41DE225E9A59500F80516 /* APIManager.swift */,
+				BFA41E0025E9BC5200F80516 /* APIManager */,
+				BFA41DF825E9B9DD00F80516 /* TramManager.swift */,
+				BFA41DFC25E9B9EE00F80516 /* TokenManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		BFA41E0025E9BC5200F80516 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				BFA41DE225E9A59500F80516 /* APIManager.swift */,
+				BFA41E0125E9BC6500F80516 /* APIEndpoints.swift */,
+			);
+			path = APIManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,6 +417,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFA41DE325E9A59500F80516 /* APIManager.swift in Sources */,
+				BFA41E0225E9BC6500F80516 /* APIEndpoints.swift in Sources */,
 				BFA41DC325E90A2B00F80516 /* Tram.swift in Sources */,
 				330D12671F96F40E00463505 /* HomeViewController.swift in Sources */,
 				BFA41DEF25E9AFDF00F80516 /* APIResponse.swift in Sources */,
@@ -407,9 +425,11 @@
 				BFA41DD325E9114000F80516 /* UserDefaults.swift in Sources */,
 				BFA41DEB25E9AC2E00F80516 /* CustomError.swift in Sources */,
 				BFA41DF525E9B8D300F80516 /* GCD.swift in Sources */,
+				BFA41DFD25E9B9EE00F80516 /* TokenManager.swift in Sources */,
 				331BFAA31F973E8000E10979 /* DotNetDateConverter.swift in Sources */,
 				BFA41DBF25E9092C00F80516 /* Token.swift in Sources */,
 				330D12651F96F40E00463505 /* AppDelegate.swift in Sources */,
+				BFA41DF925E9B9DD00F80516 /* TramManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
