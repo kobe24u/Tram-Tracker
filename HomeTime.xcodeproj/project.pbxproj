@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		33070CE91F987F6D003CC41D /* ViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33070CE81F987F6D003CC41D /* ViewControllerSpec.swift */; };
 		330D12651F96F40E00463505 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D12641F96F40E00463505 /* AppDelegate.swift */; };
-		330D12671F96F40E00463505 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D12661F96F40E00463505 /* ViewController.swift */; };
+		330D12671F96F40E00463505 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D12661F96F40E00463505 /* HomeViewController.swift */; };
 		330D126A1F96F40E00463505 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330D12681F96F40E00463505 /* Main.storyboard */; };
 		330D126C1F96F40E00463505 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330D126B1F96F40E00463505 /* Assets.xcassets */; };
 		330D126F1F96F40E00463505 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330D126D1F96F40E00463505 /* LaunchScreen.storyboard */; };
@@ -20,6 +20,7 @@
 		BFA41DBF25E9092C00F80516 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41DBE25E9092C00F80516 /* Token.swift */; };
 		BFA41DC325E90A2B00F80516 /* Tram.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41DC225E90A2B00F80516 /* Tram.swift */; };
 		BFA41DD325E9114000F80516 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41DD225E9114000F80516 /* UserDefaults.swift */; };
+		BFA41DDE25E91AA800F80516 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41DDD25E91AA800F80516 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,7 @@
 		33070CF61F997EC9003CC41D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		330D12611F96F40E00463505 /* HomeTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		330D12641F96F40E00463505 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		330D12661F96F40E00463505 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		330D12661F96F40E00463505 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		330D12691F96F40E00463505 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		330D126B1F96F40E00463505 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		330D126E1F96F40E00463505 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +54,7 @@
 		BFA41DBE25E9092C00F80516 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		BFA41DC225E90A2B00F80516 /* Tram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tram.swift; sourceTree = "<group>"; };
 		BFA41DD225E9114000F80516 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		BFA41DDD25E91AA800F80516 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F0990E01D57F549B4FDF5FB8 /* Pods-HomeTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeTime/Pods-HomeTime.debug.xcconfig"; sourceTree = "<group>"; };
 		F7A07D474CE395E42F62BE85 /* Pods_HomeTimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -101,6 +103,7 @@
 		330D12631F96F40E00463505 /* HomeTime */ = {
 			isa = PBXGroup;
 			children = (
+				BFA41DD825E9178900F80516 /* ViewModels */,
 				BFA41DD125E9113100F80516 /* Extensions */,
 				BFA41DBD25E9091C00F80516 /* Models */,
 				BFA41DA625E9031600F80516 /* Application */,
@@ -179,7 +182,7 @@
 		BFA41DA925E9032C00F80516 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				330D12661F96F40E00463505 /* ViewController.swift */,
+				330D12661F96F40E00463505 /* HomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -199,6 +202,14 @@
 				BFA41DD225E9114000F80516 /* UserDefaults.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BFA41DD825E9178900F80516 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BFA41DDD25E91AA800F80516 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,7 +380,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFA41DC325E90A2B00F80516 /* Tram.swift in Sources */,
-				330D12671F96F40E00463505 /* ViewController.swift in Sources */,
+				330D12671F96F40E00463505 /* HomeViewController.swift in Sources */,
+				BFA41DDE25E91AA800F80516 /* HomeViewModel.swift in Sources */,
 				BFA41DD325E9114000F80516 /* UserDefaults.swift in Sources */,
 				331BFAA31F973E8000E10979 /* DotNetDateConverter.swift in Sources */,
 				BFA41DBF25E9092C00F80516 /* Token.swift in Sources */,
