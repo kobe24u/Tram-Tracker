@@ -21,6 +21,10 @@
 		BFA41DC325E90A2B00F80516 /* Tram.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41DC225E90A2B00F80516 /* Tram.swift */; };
 		BFA41DD325E9114000F80516 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41DD225E9114000F80516 /* UserDefaults.swift */; };
 		BFA41DDE25E91AA800F80516 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41DDD25E91AA800F80516 /* HomeViewModel.swift */; };
+		BFA41DE325E9A59500F80516 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41DE225E9A59500F80516 /* APIManager.swift */; };
+		BFA41DEB25E9AC2E00F80516 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41DEA25E9AC2E00F80516 /* CustomError.swift */; };
+		BFA41DEF25E9AFDF00F80516 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41DEE25E9AFDF00F80516 /* APIResponse.swift */; };
+		BFA41DF525E9B8D300F80516 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41DF425E9B8D300F80516 /* GCD.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		BFA41DC225E90A2B00F80516 /* Tram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tram.swift; sourceTree = "<group>"; };
 		BFA41DD225E9114000F80516 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		BFA41DDD25E91AA800F80516 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		BFA41DE225E9A59500F80516 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		BFA41DEA25E9AC2E00F80516 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		BFA41DEE25E9AFDF00F80516 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		BFA41DF425E9B8D300F80516 /* GCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		F0990E01D57F549B4FDF5FB8 /* Pods-HomeTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeTime/Pods-HomeTime.debug.xcconfig"; sourceTree = "<group>"; };
 		F7A07D474CE395E42F62BE85 /* Pods_HomeTimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -103,6 +111,7 @@
 		330D12631F96F40E00463505 /* HomeTime */ = {
 			isa = PBXGroup;
 			children = (
+				BFA41DE125E9A57B00F80516 /* Managers */,
 				BFA41DD825E9178900F80516 /* ViewModels */,
 				BFA41DD125E9113100F80516 /* Extensions */,
 				BFA41DBD25E9091C00F80516 /* Models */,
@@ -192,6 +201,7 @@
 			children = (
 				BFA41DBE25E9092C00F80516 /* Token.swift */,
 				BFA41DC225E90A2B00F80516 /* Tram.swift */,
+				BFA41DEE25E9AFDF00F80516 /* APIResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,6 +210,8 @@
 			isa = PBXGroup;
 			children = (
 				BFA41DD225E9114000F80516 /* UserDefaults.swift */,
+				BFA41DEA25E9AC2E00F80516 /* CustomError.swift */,
+				BFA41DF425E9B8D300F80516 /* GCD.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -210,6 +222,14 @@
 				BFA41DDD25E91AA800F80516 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BFA41DE125E9A57B00F80516 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				BFA41DE225E9A59500F80516 /* APIManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,10 +399,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFA41DE325E9A59500F80516 /* APIManager.swift in Sources */,
 				BFA41DC325E90A2B00F80516 /* Tram.swift in Sources */,
 				330D12671F96F40E00463505 /* HomeViewController.swift in Sources */,
+				BFA41DEF25E9AFDF00F80516 /* APIResponse.swift in Sources */,
 				BFA41DDE25E91AA800F80516 /* HomeViewModel.swift in Sources */,
 				BFA41DD325E9114000F80516 /* UserDefaults.swift in Sources */,
+				BFA41DEB25E9AC2E00F80516 /* CustomError.swift in Sources */,
+				BFA41DF525E9B8D300F80516 /* GCD.swift in Sources */,
 				331BFAA31F973E8000E10979 /* DotNetDateConverter.swift in Sources */,
 				BFA41DBF25E9092C00F80516 /* Token.swift in Sources */,
 				330D12651F96F40E00463505 /* AppDelegate.swift in Sources */,
