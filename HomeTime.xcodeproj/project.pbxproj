@@ -19,6 +19,7 @@
 		83E7869F25318958E28F6AD9 /* Pods_HomeTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2415AF054FE18CFDAC6692CD /* Pods_HomeTime.framework */; };
 		BFA41DBF25E9092C00F80516 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41DBE25E9092C00F80516 /* Token.swift */; };
 		BFA41DC325E90A2B00F80516 /* Tram.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41DC225E90A2B00F80516 /* Tram.swift */; };
+		BFA41DD325E9114000F80516 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41DD225E9114000F80516 /* UserDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		AC3DF52AA8D0F3DFFE4C9E93 /* Pods-HomeTimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTimeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeTimeTests/Pods-HomeTimeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BFA41DBE25E9092C00F80516 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		BFA41DC225E90A2B00F80516 /* Tram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tram.swift; sourceTree = "<group>"; };
+		BFA41DD225E9114000F80516 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		F0990E01D57F549B4FDF5FB8 /* Pods-HomeTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeTime/Pods-HomeTime.debug.xcconfig"; sourceTree = "<group>"; };
 		F7A07D474CE395E42F62BE85 /* Pods_HomeTimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -99,6 +101,7 @@
 		330D12631F96F40E00463505 /* HomeTime */ = {
 			isa = PBXGroup;
 			children = (
+				BFA41DD125E9113100F80516 /* Extensions */,
 				BFA41DBD25E9091C00F80516 /* Models */,
 				BFA41DA625E9031600F80516 /* Application */,
 				BFA41DA925E9032C00F80516 /* Controllers */,
@@ -188,6 +191,14 @@
 				BFA41DC225E90A2B00F80516 /* Tram.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		BFA41DD125E9113100F80516 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BFA41DD225E9114000F80516 /* UserDefaults.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,6 +370,7 @@
 			files = (
 				BFA41DC325E90A2B00F80516 /* Tram.swift in Sources */,
 				330D12671F96F40E00463505 /* ViewController.swift in Sources */,
+				BFA41DD325E9114000F80516 /* UserDefaults.swift in Sources */,
 				331BFAA31F973E8000E10979 /* DotNetDateConverter.swift in Sources */,
 				BFA41DBF25E9092C00F80516 /* Token.swift in Sources */,
 				330D12651F96F40E00463505 /* AppDelegate.swift in Sources */,
