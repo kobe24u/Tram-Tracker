@@ -33,4 +33,16 @@ class DotNetDateConverter {
       let minutes = (Int(gap) / 60 ) % 60
       return "\(timeString) (\(minutes) min)"
     }
+    
+    // Only Convert the date, no time difference
+    func convertToReadableString(_ string: String) -> String {
+      guard let date = dateFromDotNetFormattedDateString(string) else {
+          return "Date Formatting failed"
+      }
+      let formatter = DateFormatter()
+      formatter.dateFormat = "h:mm a"
+      let timeString = formatter.string(from: date)
+      
+      return timeString
+    }
 }

@@ -13,7 +13,7 @@ enum JSONError: Error {
 class HomeViewController: UITableViewController {
 
     
-    private let viewModel = HomeViewModel(tokenManager: TokenManager(), tramManager: TramManager())
+    let viewModel = HomeViewModel(tokenManager: TokenManager(), tramManager: TramManager())
     
     private var timer = Timer()
     

@@ -7,14 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		33070CE91F987F6D003CC41D /* ViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33070CE81F987F6D003CC41D /* ViewControllerSpec.swift */; };
 		330D12651F96F40E00463505 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D12641F96F40E00463505 /* AppDelegate.swift */; };
 		330D12671F96F40E00463505 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D12661F96F40E00463505 /* HomeViewController.swift */; };
 		330D126A1F96F40E00463505 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330D12681F96F40E00463505 /* Main.storyboard */; };
 		330D126C1F96F40E00463505 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 330D126B1F96F40E00463505 /* Assets.xcassets */; };
 		330D126F1F96F40E00463505 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 330D126D1F96F40E00463505 /* LaunchScreen.storyboard */; };
 		331BFAA31F973E8000E10979 /* DotNetDateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331BFAA21F973E8000E10979 /* DotNetDateConverter.swift */; };
-		3364EC881F98236E00161053 /* DateFormatterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3364EC871F98236E00161053 /* DateFormatterTest.swift */; };
+		3364EC881F98236E00161053 /* DateFormatterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3364EC871F98236E00161053 /* DateFormatterSpec.swift */; };
 		54ED0319DC3CC3A9366207DE /* Pods_HomeTimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A07D474CE395E42F62BE85 /* Pods_HomeTimeTests.framework */; };
 		83E7869F25318958E28F6AD9 /* Pods_HomeTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2415AF054FE18CFDAC6692CD /* Pods_HomeTime.framework */; };
 		BFA41DBF25E9092C00F80516 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41DBE25E9092C00F80516 /* Token.swift */; };
@@ -35,6 +34,11 @@
 		BFA41E3225EA044200F80516 /* TramMissingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA41E3025EA044200F80516 /* TramMissingTableViewCell.xib */; };
 		BFA41E3825EA064400F80516 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41E3725EA064400F80516 /* UITableView.swift */; };
 		BFA41E3C25EA10ED00F80516 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41E3B25EA10ED00F80516 /* UIViewController.swift */; };
+		BFA41E6425EA463400F80516 /* HomeViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41E6325EA463400F80516 /* HomeViewModelSpec.swift */; };
+		BFA41E6E25EA510A00F80516 /* TokenManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41E6D25EA510A00F80516 /* TokenManagerSpec.swift */; };
+		BFA41E7225EA511A00F80516 /* TramManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41E7125EA511A00F80516 /* TramManagerSpec.swift */; };
+		BFA41E7E25EA581600F80516 /* HomeViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41E7D25EA581600F80516 /* HomeViewControllerSpec.swift */; };
+		BFA41E8825EA697C00F80516 /* APIResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41E8725EA697C00F80516 /* APIResponseSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +53,6 @@
 
 /* Begin PBXFileReference section */
 		2415AF054FE18CFDAC6692CD /* Pods_HomeTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		33070CE81F987F6D003CC41D /* ViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSpec.swift; sourceTree = "<group>"; };
 		33070CF61F997EC9003CC41D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		330D12611F96F40E00463505 /* HomeTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		330D12641F96F40E00463505 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,7 +64,7 @@
 		330D12751F96F40E00463505 /* HomeTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		330D127B1F96F40E00463505 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		331BFAA21F973E8000E10979 /* DotNetDateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotNetDateConverter.swift; sourceTree = "<group>"; };
-		3364EC871F98236E00161053 /* DateFormatterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterTest.swift; sourceTree = "<group>"; };
+		3364EC871F98236E00161053 /* DateFormatterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterSpec.swift; sourceTree = "<group>"; };
 		3CB7CB1C860FAFBD4F79371D /* Pods-HomeTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTime.release.xcconfig"; path = "Pods/Target Support Files/Pods-HomeTime/Pods-HomeTime.release.xcconfig"; sourceTree = "<group>"; };
 		91E1605E89E74E01785D5868 /* Pods-HomeTimeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTimeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HomeTimeTests/Pods-HomeTimeTests.release.xcconfig"; sourceTree = "<group>"; };
 		AC3DF52AA8D0F3DFFE4C9E93 /* Pods-HomeTimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTimeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeTimeTests/Pods-HomeTimeTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +86,11 @@
 		BFA41E3025EA044200F80516 /* TramMissingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TramMissingTableViewCell.xib; sourceTree = "<group>"; };
 		BFA41E3725EA064400F80516 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		BFA41E3B25EA10ED00F80516 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		BFA41E6325EA463400F80516 /* HomeViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelSpec.swift; sourceTree = "<group>"; };
+		BFA41E6D25EA510A00F80516 /* TokenManagerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManagerSpec.swift; sourceTree = "<group>"; };
+		BFA41E7125EA511A00F80516 /* TramManagerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramManagerSpec.swift; sourceTree = "<group>"; };
+		BFA41E7D25EA581600F80516 /* HomeViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerSpec.swift; sourceTree = "<group>"; };
+		BFA41E8725EA697C00F80516 /* APIResponseSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponseSpec.swift; sourceTree = "<group>"; };
 		F0990E01D57F549B4FDF5FB8 /* Pods-HomeTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeTime/Pods-HomeTime.debug.xcconfig"; sourceTree = "<group>"; };
 		F7A07D474CE395E42F62BE85 /* Pods_HomeTimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -148,8 +156,12 @@
 		330D12781F96F40E00463505 /* HomeTimeTests */ = {
 			isa = PBXGroup;
 			children = (
-				3364EC871F98236E00161053 /* DateFormatterTest.swift */,
-				33070CE81F987F6D003CC41D /* ViewControllerSpec.swift */,
+				BFA41E7D25EA581600F80516 /* HomeViewControllerSpec.swift */,
+				BFA41E6325EA463400F80516 /* HomeViewModelSpec.swift */,
+				BFA41E6D25EA510A00F80516 /* TokenManagerSpec.swift */,
+				BFA41E7125EA511A00F80516 /* TramManagerSpec.swift */,
+				3364EC871F98236E00161053 /* DateFormatterSpec.swift */,
+				BFA41E8725EA697C00F80516 /* APIResponseSpec.swift */,
 				330D127B1F96F40E00463505 /* Info.plist */,
 			);
 			path = HomeTimeTests;
@@ -489,8 +501,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3364EC881F98236E00161053 /* DateFormatterTest.swift in Sources */,
-				33070CE91F987F6D003CC41D /* ViewControllerSpec.swift in Sources */,
+				3364EC881F98236E00161053 /* DateFormatterSpec.swift in Sources */,
+				BFA41E6425EA463400F80516 /* HomeViewModelSpec.swift in Sources */,
+				BFA41E7225EA511A00F80516 /* TramManagerSpec.swift in Sources */,
+				BFA41E6E25EA510A00F80516 /* TokenManagerSpec.swift in Sources */,
+				BFA41E8825EA697C00F80516 /* APIResponseSpec.swift in Sources */,
+				BFA41E7E25EA581600F80516 /* HomeViewControllerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,6 +689,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z5ZAUWUQLA;
 				INFOPLIST_FILE = HomeTimeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rea-group.HomeTime.HomeTimeTests";
@@ -689,6 +706,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z5ZAUWUQLA;
 				INFOPLIST_FILE = HomeTimeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rea-group.HomeTime.HomeTimeTests";
