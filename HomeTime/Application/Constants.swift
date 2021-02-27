@@ -50,4 +50,8 @@ struct Constants {
     struct Colors {
         static let reaRed: UIColor? = UIColor(named: "REA_red")
     }
+    
+    struct Interval {
+        static let etaRefreshInterval: TimeInterval = 60.0
+    }
 }

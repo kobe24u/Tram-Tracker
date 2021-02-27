@@ -15,6 +15,8 @@ class HomeViewController: UITableViewController {
     
     private let viewModel = HomeViewModel(tokenManager: TokenManager(), tramManager: TramManager())
     
+    private var timer = Timer()
+    
     @IBOutlet var tramTimesTable: UITableView!
   
     override func viewDidLoad() {
@@ -69,6 +71,23 @@ class HomeViewController: UITableViewController {
         self.navigationController?.navigationBar.barTintColor = Constants.Colors.reaRed
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        
+        timer = Timer.scheduledTimer(timeInterval: Constants.Interval.etaRefreshInterval,
+                             target: self, selector: #selector(updateETA), userInfo: nil, repeats: true)
+    }
+
+
+    @objc func updateETA(){
+        guard let visibleIndexPaths = tramTimesTable.indexPathsForVisibleRows else {return}
+        tramTimesTable.beginUpdates()
+        tramTimesTable.reloadRows(at:visibleIndexPaths , with: .none)
+        tramTimesTable.endUpdates()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        //Avoid retain cycle
+        timer.invalidate()
     }
 }
 
