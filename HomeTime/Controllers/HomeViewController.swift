@@ -91,8 +91,6 @@ class HomeViewController: UITableViewController {
     }
 }
 
-// MARK: - Tram Data
-
 extension HomeViewController {
 
     func clearTramData() {
