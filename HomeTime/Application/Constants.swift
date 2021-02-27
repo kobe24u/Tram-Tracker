@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Constants {
     struct APIEndpoints {
@@ -44,5 +45,9 @@ struct Constants {
         static let tramStopFetchingError = "Something wrong with tram stops fetching"
         static let noUpcomingError = "No upcoming trams found"
         static let homeViewNavTitle = "Upcoming Trams"
+    }
+    
+    struct Colors {
+        static let reaRed: UIColor? = UIColor(named: "REA_red")
     }
 }

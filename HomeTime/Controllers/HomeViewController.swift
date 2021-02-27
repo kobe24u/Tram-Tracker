@@ -66,7 +66,7 @@ class HomeViewController: UITableViewController {
         title = viewModel.title
         
         //Some Nav bar beautify settings
-        self.navigationController?.navigationBar.barTintColor = UIColor(named: "REA_red")
+        self.navigationController?.navigationBar.barTintColor = Constants.Colors.reaRed
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
     }
