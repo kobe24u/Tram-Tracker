@@ -43,7 +43,7 @@ class HomeViewController: UITableViewController {
         }
         
         viewModel.noUpComingTramClosure = { [weak self] in
-            self?.tramTimesTable.reloadData()
+            self?.clearTramData()
             self?.showAlert(alertText: Constants.Title.tramStopFetchingError, alertMessage: Constants.Title.noUpcomingError)
         }
     }
