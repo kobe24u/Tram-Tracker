@@ -14,7 +14,7 @@ class TramManager {
     func fetchTrams(stopID: String, completionHandler: @escaping (Result<[Tram], Error>) -> Void) {
 
         guard let token = UserDefaults.standard.tokenKey else {
-            completionHandler(.failure(CustomError(errorDescription: "Failed to fetch locally stored token when trying to make API calls")))
+            completionHandler(.failure(CustomError(errorDescription: Constants.Error.failedtoGetLocalStoredToken)))
             return
         }
         

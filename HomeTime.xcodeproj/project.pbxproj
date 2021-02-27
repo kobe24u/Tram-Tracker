@@ -29,6 +29,12 @@
 		BFA41DFD25E9B9EE00F80516 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41DFC25E9B9EE00F80516 /* TokenManager.swift */; };
 		BFA41E0225E9BC6500F80516 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41E0125E9BC6500F80516 /* APIEndpoints.swift */; };
 		BFA41E0825E9C23100F80516 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41E0725E9C23100F80516 /* Constants.swift */; };
+		BFA41E2825E9E0B400F80516 /* TramDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41E2625E9E0B400F80516 /* TramDetailsTableViewCell.swift */; };
+		BFA41E2925E9E0B400F80516 /* TramDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA41E2725E9E0B400F80516 /* TramDetailsTableViewCell.xib */; };
+		BFA41E3125EA044200F80516 /* TramMissingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41E2F25EA044200F80516 /* TramMissingTableViewCell.swift */; };
+		BFA41E3225EA044200F80516 /* TramMissingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA41E3025EA044200F80516 /* TramMissingTableViewCell.xib */; };
+		BFA41E3825EA064400F80516 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41E3725EA064400F80516 /* UITableView.swift */; };
+		BFA41E3C25EA10ED00F80516 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA41E3B25EA10ED00F80516 /* UIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +77,12 @@
 		BFA41DFC25E9B9EE00F80516 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		BFA41E0125E9BC6500F80516 /* APIEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		BFA41E0725E9C23100F80516 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BFA41E2625E9E0B400F80516 /* TramDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		BFA41E2725E9E0B400F80516 /* TramDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TramDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		BFA41E2F25EA044200F80516 /* TramMissingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TramMissingTableViewCell.swift; sourceTree = "<group>"; };
+		BFA41E3025EA044200F80516 /* TramMissingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TramMissingTableViewCell.xib; sourceTree = "<group>"; };
+		BFA41E3725EA064400F80516 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		BFA41E3B25EA10ED00F80516 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		F0990E01D57F549B4FDF5FB8 /* Pods-HomeTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeTime/Pods-HomeTime.debug.xcconfig"; sourceTree = "<group>"; };
 		F7A07D474CE395E42F62BE85 /* Pods_HomeTimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -119,6 +131,7 @@
 		330D12631F96F40E00463505 /* HomeTime */ = {
 			isa = PBXGroup;
 			children = (
+				BFA41E1B25E9DF4500F80516 /* Cells */,
 				BFA41DE125E9A57B00F80516 /* Managers */,
 				BFA41DD825E9178900F80516 /* ViewModels */,
 				BFA41DD125E9113100F80516 /* Extensions */,
@@ -221,6 +234,8 @@
 				BFA41DD225E9114000F80516 /* UserDefaults.swift */,
 				BFA41DEA25E9AC2E00F80516 /* CustomError.swift */,
 				BFA41DF425E9B8D300F80516 /* GCD.swift */,
+				BFA41E3725EA064400F80516 /* UITableView.swift */,
+				BFA41E3B25EA10ED00F80516 /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -250,6 +265,33 @@
 				BFA41E0125E9BC6500F80516 /* APIEndpoints.swift */,
 			);
 			path = APIManager;
+			sourceTree = "<group>";
+		};
+		BFA41E1B25E9DF4500F80516 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BFA41E2E25EA040700F80516 /* TramMissingTableViewCell */,
+				BFA41E1C25E9DF5B00F80516 /* TramDetailsTableViewCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		BFA41E1C25E9DF5B00F80516 /* TramDetailsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				BFA41E2625E9E0B400F80516 /* TramDetailsTableViewCell.swift */,
+				BFA41E2725E9E0B400F80516 /* TramDetailsTableViewCell.xib */,
+			);
+			path = TramDetailsTableViewCell;
+			sourceTree = "<group>";
+		};
+		BFA41E2E25EA040700F80516 /* TramMissingTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				BFA41E2F25EA044200F80516 /* TramMissingTableViewCell.swift */,
+				BFA41E3025EA044200F80516 /* TramMissingTableViewCell.xib */,
+			);
+			path = TramMissingTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,8 +382,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFA41E2925E9E0B400F80516 /* TramDetailsTableViewCell.xib in Resources */,
 				330D126F1F96F40E00463505 /* LaunchScreen.storyboard in Resources */,
 				330D126C1F96F40E00463505 /* Assets.xcassets in Resources */,
+				BFA41E3225EA044200F80516 /* TramMissingTableViewCell.xib in Resources */,
 				330D126A1F96F40E00463505 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,8 +466,11 @@
 				BFA41DE325E9A59500F80516 /* APIManager.swift in Sources */,
 				BFA41E0225E9BC6500F80516 /* APIEndpoints.swift in Sources */,
 				BFA41DC325E90A2B00F80516 /* Tram.swift in Sources */,
+				BFA41E3C25EA10ED00F80516 /* UIViewController.swift in Sources */,
 				330D12671F96F40E00463505 /* HomeViewController.swift in Sources */,
 				BFA41DEF25E9AFDF00F80516 /* APIResponse.swift in Sources */,
+				BFA41E3825EA064400F80516 /* UITableView.swift in Sources */,
+				BFA41E2825E9E0B400F80516 /* TramDetailsTableViewCell.swift in Sources */,
 				BFA41E0825E9C23100F80516 /* Constants.swift in Sources */,
 				BFA41DDE25E91AA800F80516 /* HomeViewModel.swift in Sources */,
 				BFA41DD325E9114000F80516 /* UserDefaults.swift in Sources */,
@@ -431,6 +478,7 @@
 				BFA41DF525E9B8D300F80516 /* GCD.swift in Sources */,
 				BFA41DFD25E9B9EE00F80516 /* TokenManager.swift in Sources */,
 				331BFAA31F973E8000E10979 /* DotNetDateConverter.swift in Sources */,
+				BFA41E3125EA044200F80516 /* TramMissingTableViewCell.swift in Sources */,
 				BFA41DBF25E9092C00F80516 /* Token.swift in Sources */,
 				330D12651F96F40E00463505 /* AppDelegate.swift in Sources */,
 				BFA41DF925E9B9DD00F80516 /* TramManager.swift in Sources */,

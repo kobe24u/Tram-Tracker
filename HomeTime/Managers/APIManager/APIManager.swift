@@ -40,21 +40,21 @@ class APIManager: APIManagerType{
     private func handleAPIResponse<T: Codable>(data: Data?, urlResponse: URLResponse?, error: Error?) -> (Result<[T], Error>){
         if error != nil {
             if let err = error{
-               return .failure(CustomError(errorDescription: "Request error happens, error: \(err.localizedDescription)"))
+                return .failure(CustomError(errorDescription: "\(Constants.Error.requestFailWithValidError) \(err.localizedDescription)"))
             }
-            return .failure(CustomError(errorDescription: "Request error happens, but failed to extract the error message"))
+            return .failure(CustomError(errorDescription: Constants.Error.requestFailWithNilError))
         } else {
             guard let data = data else {
-                return .failure(CustomError(errorDescription: "No error, but data is missing"))
+                return .failure(CustomError(errorDescription: Constants.Error.dataMissing))
             }
             do {
                 let jsonResponse = try JSONDecoder().decode(APIResponse<T>.self, from: data)
                 if jsonResponse.hasError == true {
-                    return .failure(CustomError(errorDescription: jsonResponse.errorMessage ?? "Server response indicating error happened, but didn't return any error message"))
+                    return .failure(CustomError(errorDescription: jsonResponse.errorMessage ?? Constants.Error.hasErrorButNoErrorMsg))
                 }
                 return .success(jsonResponse.responseObject)
             } catch {
-                return .failure(CustomError(errorDescription: "Unknown error: \(error.localizedDescription)"))
+                return .failure(CustomError(errorDescription: "\(Constants.Error.unknownError) \(error.localizedDescription)"))
             }
         }
     }

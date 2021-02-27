@@ -12,7 +12,7 @@ struct Tram: Codable {
     //We can't make sure each request can return a valid token value, thus we make it optional
     //for better error handling
     let destination: String?
-    let arrivalDate: String
+    let arrivalDate: String?
     let routeNo: String?
 
     private enum CodingKeys : String, CodingKey {

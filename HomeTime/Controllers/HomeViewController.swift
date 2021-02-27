@@ -19,6 +19,7 @@ class HomeViewController: UITableViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
         setupViewModel()
         clearTramData()
         loadTramData()
@@ -35,13 +36,29 @@ class HomeViewController: UITableViewController {
     
     func setupViewModel(){
         viewModel.reloadDirectionClosure = { [weak self] direction in
-            self?.tramTimesTable.reloadSections(.init(integer: direction == .north ? TableViewSections.north.rawValue : TableViewSections.south.rawValue),
+            self?.tramTimesTable.reloadSections(.init(integer: direction == .north ? TableViewSection.north.rawValue : TableViewSection.south.rawValue),
                                                with: .automatic)
         }
         
-        viewModel.noUpComingTramClosure = {
-            //TODO: present an alert to tell user there is no tram coming
+        viewModel.noUpComingTramClosure = { [weak self] in
+            self?.tramTimesTable.reloadData()
+            self?.showAlert(alertText: Constants.Title.tramStopFetchingError, alertMessage: Constants.Title.noUpcomingError)
         }
+    }
+    
+    @objc func refresh(sender:AnyObject) {
+        clearTramData()
+        loadTramData()
+    }
+    
+    //Loading spinner to give user a prompt
+    func setupView(){
+        tramTimesTable.register(forClass: TramDetailsTableViewCell.self)
+        tramTimesTable.register(forClass: TramMissingTableViewCell.self)
+        tramTimesTable.allowsSelection = false
+        refreshControl = UIRefreshControl()
+        refreshControl!.attributedTitle = NSAttributedString(string: Constants.Message.tramLoadingSpinnerTitle)
+        refreshControl!.addTarget(self, action:#selector(refresh(sender:)) , for: UIControl.Event.valueChanged)
     }
 }
 
@@ -57,79 +74,71 @@ extension HomeViewController {
 
     func loadTramData() {
         //Check if we have stored a token before, if yes, we use it, if not, we call API to get one and store it locally
-        if let storedToken = UserDefaults.standard.tokenKey{
-            print("We got a token stored locally, ready to fetch tramstops")
+        if let _ = UserDefaults.standard.tokenKey{
+            //We got a token stored locally, ready to fetch tramstops
+            Direction.allCases.forEach{ fetchTramStopsByDirection(direction: $0) }
         }else{
-            viewModel.fetchToken { (result) in
-                switch result {
-                    case .failure(let error):
-                        //TODO: Handle error, show alert
-                        print(error.localizedDescription)
-                    case .success():
-                        print("We just fetched a new token, ready to fetch tramstops")
-                        //TODO: Load tramstops using the latestest token
-                }
-            }
+            fetchToken()
         }
     }
 
+    func fetchToken(){
+        viewModel.fetchToken { [weak self] (result) in
+            switch result {
+                case .failure(let error):
+                    self?.showAlert(alertText: Constants.Title.tokenFetchingError, alertMessage: error.localizedDescription)
+                case .success():
+                    //We just fetched a new token, ready to fetch tramstops
+                    Direction.allCases.forEach{ self?.fetchTramStopsByDirection(direction: $0) }
+            }
+        }
+    }
+    
     func fetchTramStopsByDirection(direction: Direction){
-        
-    }
-    
-    func tramsFor(section: Int) -> [Tram]? {
-        return (section == TableViewSections.north.rawValue) ? viewModel.northTrams : viewModel.southTrams
-    }
-    
-    func isLoading(section: Int) -> Bool {
-        return (section == TableViewSections.north.rawValue) ? viewModel.loadingNorth : viewModel.loadingSouth
+        self.viewModel.fetchTramStopsByDirection(direction: direction) { [weak self] (result) in
+            self?.refreshControl?.endRefreshing()
+            switch result {
+                case .failure(let error):
+                    self?.showAlert(alertText: Constants.Title.tramStopFetchingError, alertMessage: error.localizedDescription)
+                case .success():
+                    break
+            }
+        }
     }
 }
 
-
-// MARK - UITableViewDataSource
-
 extension HomeViewController {
-  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "TramCellIdentifier", for: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let section = TableViewSection(rawValue: indexPath.section) else { return UITableViewCell() }
 
-    let trams = tramsFor(section: indexPath.section)
-    guard let tram = trams?[indexPath.row] as? JSONDictionary else {
-      if isLoading(section: indexPath.section) {
-        cell.textLabel?.text = "Loading upcoming trams..."
-      } else {
-        cell.textLabel?.text = "No upcoming trams. Tap load to fetch"
-      }
-      return cell
+        guard let tram = viewModel.tramFor(section: section, row: indexPath.row) else {
+            //If no valid tram found, use TramMissingTableViewCell to present a meaningful message to user
+            let cell: TramMissingTableViewCell = tableView.dequeueReusableCell(forClass: TramMissingTableViewCell.self)
+            
+            if viewModel.isLoading(section: section) {
+                cell.configCell(msg: Constants.Message.tramLoadingSpinnerTitle)
+            } else {
+                cell.configCell(msg: Constants.Message.tramMissingTitle)
+            }
+            return cell
+        }
+        
+        let cell: TramDetailsTableViewCell = tableView.dequeueReusableCell(forClass: TramDetailsTableViewCell.self)
+        cell.configCell(tram: tram)
+        return cell
     }
 
-    guard let arrivalDateString = tram["PredictedArrivalDateTime"] as? String else {
-      return cell
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.numberOfSections()
     }
-    let dateConverter = DotNetDateConverter()
-    cell.textLabel?.text = dateConverter.formattedDateFromString(arrivalDateString)
 
-    return cell;
-  }
-
-  override func numberOfSections(in tableView: UITableView) -> Int {
-    return 2
-  }
-
-  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if (section == 0)
-    {
-        guard let count = viewModel.northTrams?.count else { return 1 }
-      return count
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let section = TableViewSection(rawValue: section) else { return 0 }
+        return viewModel.numberOfRowsIn(section: section)
     }
-    else
-    {
-        guard let count = viewModel.southTrams?.count else { return 1 }
-      return count
-    }
-  }
 
-  override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return section == 0 ? "North" : "South"
-  }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let section = TableViewSection(rawValue: section) else { return "Section" }
+        return viewModel.titleForSection(section)
+    }
 }

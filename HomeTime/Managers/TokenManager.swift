@@ -24,7 +24,7 @@ class TokenManager {
                     if let token = tokens.first{
                         completionHandler(.success(token))
                     }else{
-                        completionHandler(.failure(CustomError(errorDescription: "Request succeeded, but failed to extract the token")))
+                        completionHandler(.failure(CustomError(errorDescription: Constants.Error.failedtoExtractToken)))
                     }
             }
         }

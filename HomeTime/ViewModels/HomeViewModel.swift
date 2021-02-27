@@ -11,9 +11,16 @@ import Foundation
 typealias VoidClosure = () -> Void
 typealias Closure<T> = (T) -> Void
 
-enum TableViewSections: Int, CaseIterable {
+enum TableViewSection: Int, CaseIterable {
     case north = 0
     case south = 1
+    
+    var title: String {
+        switch self {
+        case .north: return "North"
+        case .south: return "South"
+        }
+    }
 }
 
 enum Direction: String, CaseIterable {
@@ -45,6 +52,42 @@ class HomeViewModel: HomeViewModelType{
     
     var southTramsSectionTitle: String {
         return Direction.south.rawValue
+    }
+    
+    func numberOfRowsIn(section: TableViewSection) -> Int {
+        switch section {
+        case .north:
+            guard let count = northTrams?.count else { return 1 }
+            return count
+        case .south:
+            guard let count = southTrams?.count else { return 1 }
+            return count
+        }
+    }
+    
+    func titleForSection(_ section: TableViewSection) -> String {
+        return section.title
+    }
+    
+    func numberOfSections() -> Int {
+        TableViewSection.allCases.count
+    }
+    
+    func tramsFor(section: TableViewSection) -> [Tram]? {
+        let trams: [Tram]? = section == .north ? northTrams : southTrams
+        return trams
+    }
+    
+    func tramFor(section: TableViewSection, row: Int) -> Tram? {
+        guard let trams = tramsFor(section: section), trams.count >= 1 else {
+            return nil
+        }
+        return trams[row]
+    }
+    
+    func isLoading(section: TableViewSection) -> Bool {
+        let isLoading: Bool = section == .north ? loadingNorth : loadingSouth
+        return isLoading
     }
     
     //Everytime an API call is finished, north tram list got refreshed, we will use closure to notify VC to reload the north Section
