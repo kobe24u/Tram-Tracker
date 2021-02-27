@@ -12,12 +12,14 @@ enum JSONError: Error {
 
 class HomeViewController: UITableViewController {
 
-    private let viewModel = HomeViewModel()
+    
+    private let viewModel = HomeViewModel(tokenManager: TokenManager(), tramManager: TramManager())
     
     @IBOutlet var tramTimesTable: UITableView!
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViewModel()
         clearTramData()
         loadTramData()
     }
@@ -29,6 +31,17 @@ class HomeViewController: UITableViewController {
     @IBAction func loadButtonTapped(_ sender: UIBarButtonItem) {
         clearTramData()
         loadTramData()
+    }
+    
+    func setupViewModel(){
+        viewModel.reloadDirectionClosure = { [weak self] direction in
+            self?.tramTimesTable.reloadSections(.init(integer: direction == .north ? TableViewSections.north.rawValue : TableViewSections.south.rawValue),
+                                               with: .automatic)
+        }
+        
+        viewModel.noUpComingTramClosure = {
+            //TODO: present an alert to tell user there is no tram coming
+        }
     }
 }
 
@@ -45,18 +58,16 @@ extension HomeViewController {
     func loadTramData() {
         //Check if we have stored a token before, if yes, we use it, if not, we call API to get one and store it locally
         if let storedToken = UserDefaults.standard.tokenKey{
-            //TODO: Load tramstops using the stored token
+            print("We got a token stored locally, ready to fetch tramstops")
         }else{
             viewModel.fetchToken { (result) in
                 switch result {
                     case .failure(let error):
                         //TODO: Handle error, show alert
                         print(error.localizedDescription)
-                    case .success(let tokenObj):
-                        //We retrieved the token, save it using UserDefaults
-                        UserDefaults.standard.tokenKey = tokenObj.token
+                    case .success():
+                        print("We just fetched a new token, ready to fetch tramstops")
                         //TODO: Load tramstops using the latestest token
-                    
                 }
             }
         }
@@ -73,7 +84,6 @@ extension HomeViewController {
     func isLoading(section: Int) -> Bool {
         return (section == TableViewSections.north.rawValue) ? viewModel.loadingNorth : viewModel.loadingSouth
     }
-  
 }
 
 

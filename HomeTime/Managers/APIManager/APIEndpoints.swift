@@ -22,11 +22,11 @@ enum APIEndpoints: EndpointsType {
         var childPath = ""
         switch (self) {
         case .fetchToken:
-            childPath = APIManager.Constants.tokenChildPath
+            childPath = Constants.APIEndpoints.tokenChildPath
         case .fetchTrams(let token,let stopId):
             childPath = "/GetNextPredictedRoutesCollection/\(stopId)/78/false/?aid=TTIOSJSON&cid=2&tkn=\(token)"
         }
-        return APIManager.Constants.baseURL + childPath
+        return Constants.APIEndpoints.baseURL + childPath
     }
 }
 

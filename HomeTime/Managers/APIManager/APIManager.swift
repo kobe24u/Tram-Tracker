@@ -19,11 +19,6 @@ class APIManager: APIManagerType{
     
     //Singleton
     static let shared = APIManager.init()
-    
-    struct Constants {
-        static let baseURL = "http://ws3.tramtracker.com.au/TramTracker/RestService"
-        static let tokenChildPath = "/GetDeviceToken/?aid=TTIOSJSON&devInfo=HomeTimeiOS"
-    }
 
     private init() {
         let config = URLSessionConfiguration.default
