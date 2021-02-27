@@ -53,12 +53,22 @@ class HomeViewController: UITableViewController {
     
     //Loading spinner to give user a prompt
     func setupView(){
+        //Registed tableview cells, disabeld selection ability
         tramTimesTable.register(forClass: TramDetailsTableViewCell.self)
         tramTimesTable.register(forClass: TramMissingTableViewCell.self)
         tramTimesTable.allowsSelection = false
+        
+        //Allow user to drag the tableview to refresh data
         refreshControl = UIRefreshControl()
-        refreshControl!.attributedTitle = NSAttributedString(string: Constants.Message.tramLoadingSpinnerTitle)
         refreshControl!.addTarget(self, action:#selector(refresh(sender:)) , for: UIControl.Event.valueChanged)
+        
+        //Use dynamic title value instead of using the hardcoded navigation item title in Storyboard
+        title = viewModel.title
+        
+        //Some Nav bar beautify settings
+        self.navigationController?.navigationBar.barTintColor = UIColor(named: "REA_red")
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
     }
 }
 

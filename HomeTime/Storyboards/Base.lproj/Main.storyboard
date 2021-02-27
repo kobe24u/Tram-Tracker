@@ -30,7 +30,7 @@
                             <outlet property="delegate" destination="4vi-as-vbC" id="KZ2-kZ-IQp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Home Time Trams" id="yhc-J6-F0d">
+                    <navigationItem key="navigationItem" title="_title" id="yhc-J6-F0d">
                         <barButtonItem key="leftBarButtonItem" title="Clear" id="0W1-3c-a2P" userLabel="Clear">
                             <connections>
                                 <action selector="clearButtonTapped:" destination="4vi-as-vbC" id="RJ5-H7-n9f"/>

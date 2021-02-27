@@ -30,6 +30,7 @@ enum Direction: String, CaseIterable {
 
 
 protocol HomeViewModelType {
+    var title: String { get }
     var northTramSectionTitle: String { get }
     var southTramsSectionTitle: String { get }
 
@@ -45,6 +46,10 @@ protocol HomeViewModelType {
 }
 
 class HomeViewModel: HomeViewModelType{
+    
+    var title: String {
+        return Constants.Title.homeViewNavTitle
+    }
     
     var northTramSectionTitle: String {
         return Direction.north.rawValue

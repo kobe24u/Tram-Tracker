@@ -43,5 +43,6 @@ struct Constants {
         static let tokenFetchingError = "Something wrong with token fetching"
         static let tramStopFetchingError = "Something wrong with tram stops fetching"
         static let noUpcomingError = "No upcoming trams found"
+        static let homeViewNavTitle = "Upcoming Trams"
     }
 }
